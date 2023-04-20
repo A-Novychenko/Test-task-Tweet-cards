@@ -1,13 +1,10 @@
 import { GlobalStyle } from '../constants/GlobalStyle';
+import { Card } from './card';
 
 export const App = () => {
   return (
     <>
-      <div className="App">
-        <header className="App-header" style={{ backgroundColor: '#5736A3' }}>
-          Tweet cards !
-        </header>
-      </div>
+      <Card />
       <GlobalStyle />
     </>
   );
