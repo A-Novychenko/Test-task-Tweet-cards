@@ -14,9 +14,9 @@ import {
   Wrap,
 } from './Card.styled';
 
-export const Card = () => (
+export const Card = ({ user: { id, avatar, user, tweets, followers } }) => (
   <CardWrap>
-    <Logo src={logo} alt="logo" />
+    <Logo src={logo} alt={user} />
     <Wrap>
       <Background></Background>
     </Wrap>
@@ -24,14 +24,16 @@ export const Card = () => (
     <AvatarBox>
       <Delimiter>
         <BorderAvatar>
-          <BackgroundAvatar></BackgroundAvatar>
+          <BackgroundAvatar
+            style={{ backgroundImage: avatar }}
+          ></BackgroundAvatar>
         </BorderAvatar>
       </Delimiter>
     </AvatarBox>
 
     <Inner>
-      <Statistics> 777 tweets</Statistics>
-      <Statistics>100,500 Followers</Statistics>
+      <Statistics> {tweets} tweets</Statistics>
+      <Statistics>{followers} Followers</Statistics>
       <Button type="button">Follow</Button>
     </Inner>
   </CardWrap>

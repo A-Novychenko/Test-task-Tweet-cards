@@ -130,6 +130,12 @@ export const Button = styled.button`
   line-height: 1.22;
   text-transform: uppercase;
   color: #373737;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5cd3a8;
+  }
 `;
 
 // export const Button!!!!!!!!!! = styled.p`

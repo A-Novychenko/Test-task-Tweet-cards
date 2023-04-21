@@ -1,10 +1,12 @@
 import { GlobalStyle } from '../constants/GlobalStyle';
-import { Card } from './card';
+
+import { CardList } from './CardList';
 
 export const App = () => {
   return (
     <>
-      <Card />
+      <CardList />
+
       <GlobalStyle />
     </>
   );
