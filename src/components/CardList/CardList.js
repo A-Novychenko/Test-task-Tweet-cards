@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchUsers } from 'redux/users/usersOperations';
 import { selectUsers } from 'redux/users/usersSelectors';
-import { Card } from 'components/Card';
+// import { Card } from 'components/Card';
 
 export const CardList = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ export const CardList = () => {
   console.log('users', users);
 
   return (
-    <ul>{users && users.map(user => <Card key={user.id} user={user} />)}</ul>
+    // <ul>{users && users.map(user => <Card key={user.id} user={user} />)}</ul>
+    <></>
   );
 };
