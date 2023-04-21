@@ -12,9 +12,9 @@ import {
   BackgroundAvatar,
   Logo,
   Wrap,
-} from './Card.styled';
+} from './CardItem.styled';
 
-export const Card = ({ user: { id, avatar, user, tweets, followers } }) => (
+export const CardItem = ({ user: { id, avatar, user, tweets, followers } }) => (
   <CardWrap>
     <Logo src={logo} alt={user} />
     <Wrap>

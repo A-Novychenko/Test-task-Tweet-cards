@@ -1,9 +1,9 @@
+import { CardItem } from 'components/CardItem/CardItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchUsers } from 'redux/users/usersOperations';
 import { selectUsers } from 'redux/users/usersSelectors';
-import { Card } from 'components/Card/Card';
 
 export const CardList = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export const CardList = () => {
       {users &&
         users.map(user => (
           <li key={user.id}>
-            <Card user={user} />
+            <CardItem user={user} />
           </li>
         ))}
     </ul>
