@@ -2,23 +2,32 @@ import logo from '../../img/logo.png';
 // import bgImg from '../../img/background.png';
 import {
   Background,
+  BorderAvatar,
   Button,
   CardWrap,
   Delimiter,
   Inner,
   Statistics,
+  AvatarBox,
+  BackgroundAvatar,
+  Logo,
+  Wrap,
 } from './Card.styled';
 
 export const Card = () => (
   <CardWrap>
-    <div>
-      <img src={logo} alt="logo" width="76" height="22" />
-    </div>
-    <Background />
+    <Logo src={logo} alt="logo" />
+    <Wrap>
+      <Background></Background>
+    </Wrap>
 
-    <Delimiter>
-      <div></div>
-    </Delimiter>
+    <AvatarBox>
+      <Delimiter>
+        <BorderAvatar>
+          <BackgroundAvatar></BackgroundAvatar>
+        </BorderAvatar>
+      </Delimiter>
+    </AvatarBox>
 
     <Inner>
       <Statistics> 777 tweets</Statistics>
