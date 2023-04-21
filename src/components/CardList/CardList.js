@@ -16,6 +16,13 @@ export const CardList = () => {
   console.log('users', users);
 
   return (
-    <ul>{users && users.map(user => <Card key={user.id} user={user} />)}</ul>
+    <ul>
+      {users &&
+        users.map(user => (
+          <li key={user.id}>
+            <Card user={user} />
+          </li>
+        ))}
+    </ul>
   );
 };
