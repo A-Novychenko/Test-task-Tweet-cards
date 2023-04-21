@@ -13,6 +13,7 @@ export const CardList = () => {
   }, [dispatch]);
 
   const users = useSelector(selectUsers);
+
   console.log('users', users);
 
   return (
