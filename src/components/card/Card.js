@@ -14,7 +14,7 @@ import {
   Wrap,
 } from './Card.styled';
 
-export const Card = ({ user: { id, avatar, user, tweets, followers } }) => (
+export const CardTEST = ({ user: { id, avatar, user, tweets, followers } }) => (
   <CardWrap>
     <Logo src={logo} alt={user} />
     <Wrap>

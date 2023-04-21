@@ -1,4 +1,4 @@
-import { Card } from '../Card/Card';
+import { CardTEST } from 'components/Card/Card';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from 'redux/users/usersOperations';
@@ -14,6 +14,8 @@ export const CardList = () => {
   const users = useSelector(selectUsers);
 
   return (
-    <ul>{users && users.map(user => <Card key={user.id} user={user} />)}</ul>
+    <ul>
+      {users && users.map(user => <CardTEST key={user.id} user={user} />)}
+    </ul>
   );
 };
