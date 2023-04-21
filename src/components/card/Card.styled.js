@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import bgImg from '../../img/background.png';
 
-export const CardWrap = styled.div`
+export const CardWrap = styled.li`
   position: relative;
   width: 380px;
   height: 460px;
