@@ -1,4 +1,4 @@
-import { CardTEST } from 'components/Card/Card';
+import { CardTEST } from 'components/Card';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from 'redux/users/usersOperations';
