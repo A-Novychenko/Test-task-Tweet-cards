@@ -1,4 +1,4 @@
-import { CardItem } from 'components/CardItem';
+import { CardItem } from 'components/CardItem/CardItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
