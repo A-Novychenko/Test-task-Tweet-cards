@@ -14,7 +14,10 @@ import {
   Wrap,
 } from './CardItem.styled';
 
-export const CardItem = ({ user: { id, avatar, user, tweets, followers } }) => (
+export const CardItem = ({
+  user: { id, avatar, user, tweets, followers, isFollowing },
+  handleClickBtn,
+}) => (
   <CardWrap>
     <Logo src={logo} alt={user} />
     <Wrap>
@@ -34,7 +37,15 @@ export const CardItem = ({ user: { id, avatar, user, tweets, followers } }) => (
     <Inner>
       <Statistics> {tweets} tweets</Statistics>
       <Statistics>{followers} Followers</Statistics>
-      <Button type="button">Follow</Button>
+      <Button
+        type="button"
+        onClick={() => {
+          handleClickBtn(id);
+        }}
+        isFollowing={isFollowing}
+      >
+        {isFollowing ? 'Following' : 'Follow'}
+      </Button>
     </Inner>
   </CardWrap>
 );

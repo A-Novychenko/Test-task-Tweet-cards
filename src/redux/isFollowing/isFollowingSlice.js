@@ -3,7 +3,14 @@ const { createSlice } = require('@reduxjs/toolkit');
 const isFollowingSlice = createSlice({
   initialState: [],
   name: 'isFollowing',
-  // extraReducers: builder => builder.addCase(),
+  reducers: {
+    addFollowing: {
+      reducer: (state, { payload }) => {
+        state.push(payload);
+      },
+    },
+  },
 });
 
 export const isFollowingReducer = isFollowingSlice.reducer;
+export const { addFollowing } = isFollowingSlice.actions;
