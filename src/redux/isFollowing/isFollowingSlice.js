@@ -9,8 +9,13 @@ const isFollowingSlice = createSlice({
         state.push(payload);
       },
     },
+    removeFollowing: {
+      reducer: (state, { payload }) => {
+        state.splice(state.indexOf(payload), 1);
+      },
+    },
   },
 });
 
 export const isFollowingReducer = isFollowingSlice.reducer;
-export const { addFollowing } = isFollowingSlice.actions;
+export const { addFollowing, removeFollowing } = isFollowingSlice.actions;

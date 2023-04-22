@@ -40,7 +40,7 @@ export const CardItem = ({
       <Button
         type="button"
         onClick={() => {
-          handleClickBtn(id);
+          handleClickBtn({ id, followers });
         }}
         isFollowing={isFollowing}
       >

@@ -2,9 +2,15 @@ import { CardItem } from 'components/CardItem/CardItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsFollowingUsers } from 'redux/isFollowing/isFollowingSelectors';
-import { addFollowing } from 'redux/isFollowing/isFollowingSlice';
+import {
+  addFollowing,
+  removeFollowing,
+} from 'redux/isFollowing/isFollowingSlice';
 
-import { fetchUsers } from 'redux/users/usersOperations';
+import {
+  changeQuantityFollower,
+  fetchUsers,
+} from 'redux/users/usersOperations';
 import { selectUsers } from 'redux/users/usersSelectors';
 
 export const CardList = () => {
@@ -27,17 +33,25 @@ export const CardList = () => {
 
   console.log('visibleUsers', visibleUsers);
 
-  const handleClickBtn = id => {
-    dispatch(addFollowing(id));
+  const handleClickBtn = ({ id, followers }) => {
+    const inFollowers = IsFollowingUsers.includes(id);
+    console.log('inFollowers', inFollowers);
+
+    if (inFollowers) {
+      dispatch(removeFollowing(id));
+      dispatch(changeQuantityFollower({ id, followers: followers - 1 }));
+    }
+    if (!inFollowers) {
+      dispatch(addFollowing(id));
+      dispatch(changeQuantityFollower({ id, followers: followers + 1 }));
+    }
   };
 
   return (
     <ul>
       {visibleUsers &&
         visibleUsers.map(user => (
-          <li key={user.id}>
-            <CardItem user={user} handleClickBtn={handleClickBtn} />
-          </li>
+          <CardItem key={user.id} user={user} handleClickBtn={handleClickBtn} />
         ))}
     </ul>
   );
