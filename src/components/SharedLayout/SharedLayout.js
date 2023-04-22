@@ -1,18 +1,19 @@
 import { Suspense } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { Outlet } from 'react-router-dom';
-import { Header, NavLinkStyled, Container, Nav } from './SharedLayout.styled';
+// import { Header, NavLinkStyled, Container, Nav } from './SharedLayout.styled';
+import { Container } from './SharedLayout.styled';
 
 export const SharedLayout = () => (
   <>
-    <Header>
+    {/* <Header>
       <Container>
         <Nav>
           <NavLinkStyled to="/">Home</NavLinkStyled>
           <NavLinkStyled to="/tweets">Tweets</NavLinkStyled>
         </Nav>
       </Container>
-    </Header>
+    </Header> */}
     <Container>
       <main>
         <Suspense

@@ -13,6 +13,7 @@ import {
 } from 'redux/users/usersOperations';
 import { selectUsers } from 'redux/users/usersSelectors';
 import { List, ListWrapper, Button } from './CardList.styled';
+import { Link } from 'react-router-dom';
 
 export const CardList = () => {
   const [visibleUsers, setVisibleUsers] = useState([]);
@@ -62,6 +63,7 @@ export const CardList = () => {
 
   return (
     <ListWrapper>
+      <Link to="/">Back</Link>
       <List>
         {currentUsers &&
           currentUsers.map(user => (
