@@ -112,7 +112,6 @@ export const Statistics = styled.p`
 
 export const Button = styled.button`
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 14px 28px;

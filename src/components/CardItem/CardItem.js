@@ -28,7 +28,7 @@ export const CardItem = ({
       <Delimiter>
         <BorderAvatar>
           <BackgroundAvatar
-            style={{ backgroundImage: avatar }}
+            style={{ backgroundImage: `url(${avatar}` }}
           ></BackgroundAvatar>
         </BorderAvatar>
       </Delimiter>
