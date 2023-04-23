@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 export const selectUsers = state => state.users;
 export const selectFollowingsUsersList = state => state.isFollowing;
-export const selectStatusFilter = state => state.ststusFilter;
+export const selectStatusFilter = state => state.statusFilter;
 
 export const selectVisibleUsers = createSelector(
   [selectUsers, selectFollowingsUsersList, selectStatusFilter],

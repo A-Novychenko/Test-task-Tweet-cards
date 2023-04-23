@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import { changeStatusFilter } from 'redux/statusFilter/statusFilterSlice';
 
 const options = [
   { value: 'all', label: 'all' },
-  { value: 'follow ', label: 'follow ' },
-  { value: 'followings ', label: 'followings ' },
+  { value: 'follow', label: 'follow' },
+  { value: 'followings', label: 'followings' },
 ];
 
-export const Dropdown = () => {
+export const Dropdown = ({ resetCurrentPage }) => {
   const [currentValue, setcurrentValue] = useState('all');
-
-  useEffect(() => {
-    console.log('currenValue', currentValue);
-  }, [currentValue]);
+  const dispatch = useDispatch();
 
   const getValue = () =>
     currentValue ? options.find(({ value }) => value === currentValue) : '';
 
   const handleChangeValue = newValue => {
     setcurrentValue(newValue.value);
+    dispatch(changeStatusFilter(newValue.value));
+    resetCurrentPage();
   };
 
   return (

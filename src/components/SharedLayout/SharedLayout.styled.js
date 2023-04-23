@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  width: 1200px;
+  width: 1268px;
 `;
 
 export const Header = styled.header`

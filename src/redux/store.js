@@ -12,10 +12,12 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { isFollowingReducer } from './isFollowing/isFollowingSlice';
 import { usersReducer } from './users/usersSlice';
+import { statusFilterSliceReducer } from './statusFilter/statusFilterSlice';
 
 const rootReducer = combineReducers({
   users: usersReducer,
   isFollowing: isFollowingReducer,
+  statusFilter: statusFilterSliceReducer,
 });
 
 const persistConfig = {
