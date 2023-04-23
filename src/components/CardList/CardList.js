@@ -1,7 +1,6 @@
 import { CardItem } from 'components/CardItem/CardItem';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsFollowingUsers } from 'redux/isFollowing/isFollowingSelectors';
 import {
   addFollowing,
   removeFollowing,
@@ -11,20 +10,20 @@ import {
   changeQuantityFollower,
   fetchUsers,
 } from 'redux/users/usersOperations';
-import { selectUsers } from 'redux/users/usersSelectors';
+
 import { List, ListWrapper, Button } from './CardList.styled';
 import { Link } from 'react-router-dom';
 import { Dropdown } from 'components/Dropdown';
+import { selectFollowingsUsersList, selectVisibleUsers } from 'redux/selectors';
 
 export const CardList = () => {
-  const [visibleUsers, setVisibleUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentUsers, setCurrentUsers] = useState([]);
   const [userPerPage] = useState(3);
 
   const dispatch = useDispatch();
-  const allUsers = useSelector(selectUsers);
-  const IsFollowingList = useSelector(selectIsFollowingUsers);
+  const visibleUsers = useSelector(selectVisibleUsers);
+  const IsFollowingList = useSelector(selectFollowingsUsersList);
   const lastIdx = currentPage * userPerPage;
   const totalPage = visibleUsers.length / userPerPage;
 
@@ -35,18 +34,6 @@ export const CardList = () => {
   useEffect(() => {
     setCurrentUsers([...visibleUsers].slice(0, lastIdx));
   }, [lastIdx, visibleUsers]);
-
-  useEffect(() => {
-    const hendleUsers = allUsers.map(user => {
-      const isFollowing = IsFollowingList.some(el => el === user.id);
-      if (isFollowing) {
-        return { ...user, isFollowing: true };
-      }
-      return { ...user, isFollowing: false };
-    });
-
-    setVisibleUsers(hendleUsers);
-  }, [IsFollowingList, allUsers]);
 
   const handleClickBtn = ({ id, followers }) => {
     const inFollowers = IsFollowingList.includes(id);
