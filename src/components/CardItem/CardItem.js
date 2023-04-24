@@ -1,5 +1,6 @@
+import { formatNumber } from 'utils/formatNumber';
 import logo from '../../img/logo.png';
-// import bgImg from '../../img/background.png';
+import defaultAvatar from '../../img/hansel.png';
 import {
   Background,
   BorderAvatar,
@@ -15,7 +16,7 @@ import {
 } from './CardItem.styled';
 
 export const CardItem = ({
-  user: { id, avatar, user, tweets, followers, isFollowing },
+  user: { id, avatar = defaultAvatar, user, tweets, followers, isFollowing },
   handleClickBtn,
 }) => (
   <CardWrap>
@@ -36,7 +37,7 @@ export const CardItem = ({
 
     <Inner>
       <Statistics> {tweets} tweets</Statistics>
-      <Statistics>{followers} Followers</Statistics>
+      <Statistics>{formatNumber(followers)} Followers</Statistics>
       <Button
         type="button"
         onClick={() => {
