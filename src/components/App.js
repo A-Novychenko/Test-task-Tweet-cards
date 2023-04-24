@@ -12,7 +12,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}></Route>
-          <Route path="tweets" element={<Tweets />} />
+          <Route path="/tweets" element={<Tweets />} />
 
           <Route path="*" element={<Home />}></Route>
         </Route>

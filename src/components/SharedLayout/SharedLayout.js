@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { Outlet } from 'react-router-dom';
-// import { Header, NavLinkStyled, Container, Nav } from './SharedLayout.styled';
-import { Container } from './SharedLayout.styled';
+import { Container, Title } from './SharedLayout.styled';
 
 export const SharedLayout = () => (
   <>
     <Container>
       <main>
+        <Title>Tweets APP</Title>
         <Suspense
           fallback={
             <Circles

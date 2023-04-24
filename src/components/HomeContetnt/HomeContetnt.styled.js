@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   padding-top: 80px;
   margin-bottom: 80px;
   text-align: center;
