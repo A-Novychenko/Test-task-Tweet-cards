@@ -9,7 +9,6 @@ export const fetchUsers = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const resp = await axios.get('/users');
-      console.log('resp', resp);
       return resp.data;
     } catch (err) {
       toast.error('Sorry! Something went wrong. Try again later', {

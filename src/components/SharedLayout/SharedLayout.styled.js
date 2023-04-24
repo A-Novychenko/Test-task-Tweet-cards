@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 16px;
+  padding-left: 16px;
   margin-right: auto;
   margin-left: auto;
   width: 1268px;

@@ -9,7 +9,6 @@ export const selectIsLoading = state => state.users.isLoading;
 export const selectVisibleUsers = createSelector(
   [selectUsers, selectFollowingsUsersList, selectStatusFilter],
   (usersData, followingsList, statusFilter) => {
-    console.log('usersData', usersData);
     const hendleUsers = usersData.map(user => {
       const isFollowing = followingsList.some(el => el === user.id);
       if (isFollowing) {

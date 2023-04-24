@@ -8,7 +8,8 @@ export const Button = styled.button`
   gap: 6px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 26px;
+  margin-top: 16px;
+  margin-bottom: 32px;
   width: 200px;
 
   background-color: #5736a3;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   addFollowing,
   removeFollowing,
@@ -9,30 +9,21 @@ import {
   fetchUsers,
 } from 'redux/users/usersOperations';
 import { Dropdown } from 'components/Dropdown';
-import {
-  selectError,
-  selectFollowingsUsersList,
-  selectVisibleUsers,
-} from 'redux/selectors';
 import { CardList } from 'components/CardList';
 import { LoadMoreBtn } from 'components/LoadMoreBtn';
 import { BackBtn } from 'components/BackBtn';
 
-import { selectIsLoading } from 'redux/selectors';
 import { Circles } from 'react-loader-spinner';
+import { useUsers } from 'hooks';
 
 const Tweets = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentUsers, setCurrentUsers] = useState([]);
   const [userPerPage] = useState(3);
-
   const dispatch = useDispatch();
-  const visibleUsers = useSelector(selectVisibleUsers);
-  const IsFollowingList = useSelector(selectFollowingsUsersList);
+  const { visibleUsers, followingsUsersList, isLoading, error } = useUsers();
   const lastIdx = currentPage * userPerPage;
   const totalPage = Math.ceil(visibleUsers.length / userPerPage);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -43,8 +34,7 @@ const Tweets = () => {
   }, [lastIdx, visibleUsers]);
 
   const handleClickBtn = ({ id, followers }) => {
-    const inFollowers = IsFollowingList.includes(id);
-    console.log('inFollowers', inFollowers);
+    const inFollowers = followingsUsersList.includes(id);
 
     if (inFollowers) {
       dispatch(removeFollowing(id));
