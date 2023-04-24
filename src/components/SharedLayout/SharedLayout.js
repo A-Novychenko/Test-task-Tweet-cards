@@ -6,14 +6,6 @@ import { Container } from './SharedLayout.styled';
 
 export const SharedLayout = () => (
   <>
-    {/* <Header>
-      <Container>
-        <Nav>
-          <NavLinkStyled to="/">Home</NavLinkStyled>
-          <NavLinkStyled to="/tweets">Tweets</NavLinkStyled>
-        </Nav>
-      </Container>
-    </Header> */}
     <Container>
       <main>
         <Suspense

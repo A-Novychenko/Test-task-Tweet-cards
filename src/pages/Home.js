@@ -1,10 +1,5 @@
-import { Link } from 'react-router-dom';
+import { HomeContent } from 'components/HomeContetnt';
 
-const Home = () => (
-  <>
-    <h1>HOME</h1>
-    <Link to="/tweets">Tweets</Link>
-  </>
-);
+const Home = () => <HomeContent />;
 
 export default Home;

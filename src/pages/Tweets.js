@@ -22,12 +22,9 @@ const Tweets = () => {
 
   const dispatch = useDispatch();
   const visibleUsers = useSelector(selectVisibleUsers);
-  console.log('visibleUsers', visibleUsers);
   const IsFollowingList = useSelector(selectFollowingsUsersList);
   const lastIdx = currentPage * userPerPage;
   const totalPage = Math.ceil(visibleUsers.length / userPerPage);
-  console.log('totalPage', totalPage);
-  console.log('currentPage', currentPage);
 
   useEffect(() => {
     dispatch(fetchUsers());
