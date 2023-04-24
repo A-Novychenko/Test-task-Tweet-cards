@@ -4,16 +4,15 @@ import {
   addFollowing,
   removeFollowing,
 } from 'redux/isFollowing/isFollowingSlice';
-
 import {
   changeQuantityFollower,
   fetchUsers,
 } from 'redux/users/usersOperations';
-import { Link } from 'react-router-dom';
 import { Dropdown } from 'components/Dropdown';
 import { selectFollowingsUsersList, selectVisibleUsers } from 'redux/selectors';
 import { CardList } from 'components/CardList';
 import { LoadMoreBtn } from 'components/LoadMoreBtn';
+import { BackBtn } from 'components/BackBtn';
 
 const Tweets = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -57,7 +56,7 @@ const Tweets = () => {
 
   return (
     <>
-      <Link to="/">Back</Link>
+      <BackBtn />
       <Dropdown resetCurrentPage={resetCurrentPage} />
       <CardList currentUsers={currentUsers} handleClickBtn={handleClickBtn} />
       {totalPage !== currentPage && <LoadMoreBtn nextPage={nextPage} />}

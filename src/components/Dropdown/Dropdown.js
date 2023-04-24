@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Select from 'react-select';
 import { changeStatusFilter } from 'redux/statusFilter/statusFilterSlice';
+import { SelectStyled } from './Dropdown.styled';
 
 const options = [
   { value: 'all', label: 'all' },
@@ -23,6 +23,19 @@ export const Dropdown = ({ resetCurrentPage }) => {
   };
 
   return (
-    <Select options={options} value={getValue()} onChange={handleChangeValue} />
+    <SelectStyled
+      options={options}
+      value={getValue()}
+      onChange={handleChangeValue}
+      theme={theme => ({
+        ...theme,
+        borderRadius: 8,
+        colors: {
+          ...theme.colors,
+          primary25: '#5cd3a8',
+          primary: '#5736a3',
+        },
+      })}
+    />
   );
 };
