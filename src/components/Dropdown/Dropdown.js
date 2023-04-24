@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { changeStatusFilter } from 'redux/statusFilter/statusFilterSlice';
 import { SelectStyled } from './Dropdown.styled';
 
 const options = [
@@ -9,22 +6,14 @@ const options = [
   { value: 'followings', label: 'followings' },
 ];
 
-export const Dropdown = ({ resetCurrentPage }) => {
-  const [currentValue, setcurrentValue] = useState('all');
-  const dispatch = useDispatch();
-
+export const Dropdown = ({ filter, handleChangeValue }) => {
   const getValue = () =>
-    currentValue ? options.find(({ value }) => value === currentValue) : '';
-
-  const handleChangeValue = newValue => {
-    setcurrentValue(newValue.value);
-    dispatch(changeStatusFilter(newValue.value));
-    resetCurrentPage();
-  };
+    filter ? options.find(({ value }) => value === filter) : '';
 
   return (
     <SelectStyled
       options={options}
+      defaultValue={options[1]}
       value={getValue()}
       onChange={handleChangeValue}
       theme={theme => ({

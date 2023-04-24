@@ -15,23 +15,29 @@ import { BackBtn } from 'components/BackBtn';
 
 import { Circles } from 'react-loader-spinner';
 import { useUsers } from 'hooks';
+import { useSearchParams } from 'react-router-dom';
+import { filterUsers } from 'utils';
 
 const Tweets = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentUsers, setCurrentUsers] = useState([]);
   const [userPerPage] = useState(3);
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { visibleUsers, followingsUsersList, isLoading, error } = useUsers();
   const lastIdx = currentPage * userPerPage;
-  const totalPage = Math.ceil(visibleUsers.length / userPerPage);
+  const filter = searchParams.get('filter') ?? 'all';
+  const totalPage = Math.ceil(
+    filterUsers(filter, visibleUsers).length / userPerPage
+  );
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
   useEffect(() => {
-    setCurrentUsers([...visibleUsers].slice(0, lastIdx));
-  }, [lastIdx, visibleUsers]);
+    setCurrentUsers(filterUsers(filter, visibleUsers).slice(0, lastIdx));
+  }, [filter, lastIdx, visibleUsers]);
 
   const handleClickBtn = ({ id, followers }) => {
     const inFollowers = followingsUsersList.includes(id);
@@ -49,14 +55,17 @@ const Tweets = () => {
   const nextPage = () => {
     setCurrentPage(prevState => prevState + 1);
   };
-  const resetCurrentPage = () => {
+
+  const handleChangeValue = ({ value }) => {
+    setSearchParams({ filter: value });
     setCurrentPage(1);
   };
 
   return (
     <>
       <BackBtn />
-      <Dropdown resetCurrentPage={resetCurrentPage} />
+      <Dropdown filter={filter} handleChangeValue={handleChangeValue} />
+
       {!error && (
         <CardList currentUsers={currentUsers} handleClickBtn={handleClickBtn} />
       )}
