@@ -8,6 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'constants/GlobalStyle';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'constants';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +17,9 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="/test-task-tweet-cards">
-          <App />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
           <GlobalStyle />
           <ToastContainer />
         </BrowserRouter>
