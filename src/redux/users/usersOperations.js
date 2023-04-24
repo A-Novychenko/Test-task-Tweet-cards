@@ -48,6 +48,7 @@ export const changeQuantityFollower = createAsyncThunk(
           theme: 'colored',
         }
       );
+
       return rejectWithValue(err.message);
     }
   }
