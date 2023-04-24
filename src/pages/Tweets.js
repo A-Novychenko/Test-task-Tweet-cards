@@ -9,10 +9,17 @@ import {
   fetchUsers,
 } from 'redux/users/usersOperations';
 import { Dropdown } from 'components/Dropdown';
-import { selectFollowingsUsersList, selectVisibleUsers } from 'redux/selectors';
+import {
+  selectError,
+  selectFollowingsUsersList,
+  selectVisibleUsers,
+} from 'redux/selectors';
 import { CardList } from 'components/CardList';
 import { LoadMoreBtn } from 'components/LoadMoreBtn';
 import { BackBtn } from 'components/BackBtn';
+
+import { selectIsLoading } from 'redux/selectors';
+import { Circles } from 'react-loader-spinner';
 
 const Tweets = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +31,8 @@ const Tweets = () => {
   const IsFollowingList = useSelector(selectFollowingsUsersList);
   const lastIdx = currentPage * userPerPage;
   const totalPage = Math.ceil(visibleUsers.length / userPerPage);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -58,8 +67,29 @@ const Tweets = () => {
     <>
       <BackBtn />
       <Dropdown resetCurrentPage={resetCurrentPage} />
-      <CardList currentUsers={currentUsers} handleClickBtn={handleClickBtn} />
-      {totalPage !== currentPage && <LoadMoreBtn nextPage={nextPage} />}
+      {!error && (
+        <CardList currentUsers={currentUsers} handleClickBtn={handleClickBtn} />
+      )}
+      {totalPage !== currentPage && !isLoading && !error && (
+        <LoadMoreBtn nextPage={nextPage} />
+      )}
+      {isLoading && (
+        <Circles
+          height="300"
+          width="300"
+          color="#5cd3a8"
+          ariaLabel="circles-loading"
+          wrapperStyle={{
+            display: 'flex',
+            justifyContent: 'center',
+            position: 'fixed',
+            top: '150px',
+            left: '50%',
+            transform: 'translate(-50%)',
+          }}
+          visible={true}
+        />
+      )}
     </>
   );
 };
