@@ -15,7 +15,7 @@ import { BackBtn } from 'components/BackBtn';
 
 import { Circles } from 'react-loader-spinner';
 import { useUsers } from 'hooks';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { filterUsers } from 'utils';
 
 const Tweets = () => {
@@ -30,6 +30,7 @@ const Tweets = () => {
   const totalPage = Math.ceil(
     filterUsers(filter, visibleUsers).length / userPerPage
   );
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -63,7 +64,7 @@ const Tweets = () => {
 
   return (
     <>
-      <BackBtn />
+      <BackBtn location={location} />
       <Dropdown filter={filter} handleChangeValue={handleChangeValue} />
 
       {!error && (
