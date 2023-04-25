@@ -5,29 +5,27 @@ export const Button = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 28px;
-  gap: 6px;
-  margin-top: 26px;
-  margin-bottom: 26px;
-  width: 200px;
+  padding: ${props => props.theme.spacing(3.5, 7)};
+  gap: ${props => props.theme.spacing(1.5)};
+  margin-top: ${props => props.theme.spacing(6.5)};
+  margin-bottom: ${props => props.theme.spacing(6.5)};
+  width: ${props => props.theme.spacing(50)};
 
-  background-color: #5736a3;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  background-color: ${props => props.theme.colors.primary};
+  box-shadow: ${props => props.boxShadow};
+  border-radius: ${props => props.theme.spacing(2.5)};
 
-  font-family: 'Montserrat';
-  font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: ${props => props.theme.spacing(4.5)};
   line-height: 1.22;
   text-transform: uppercase;
-  color: #fff;
+  color: ${props => props.theme.colors.textLight};
   text-decoration: none;
 
-  cursor: pointer;
+  cursor: ${props => props.theme.cursor};
 
   &:hover {
-    color: #373737;
-    background-color: #5cd3a8;
+    background-color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.textDark};
   }
 `;

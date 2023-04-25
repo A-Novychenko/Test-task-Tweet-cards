@@ -1,13 +1,15 @@
 export const theme = Object.freeze({
-  colors: {
-    white: '#ffffff',
-    darkGrey: '#7c7c7c',
-    lightGrey: '#dddddd',
-    lightGrayTransparency: 'rgba(221, 221, 221, 0.8)',
-    darckGrayTransparency: 'rgba(124, 124, 124, 0.3)',
-    black: '##000000',
-    lightBlue: '#31b7f5',
+  font: {
+    primary: "'Montserrat', sans-serif",
   },
+  colors: {
+    primary: '#5736a3',
+    secondary: '#ebd8ff',
+    accent: '#5cd3a8',
+    textLight: '#fff',
+    textDark: '#373737',
+  },
+
   spacing: (...values) => {
     let value = '';
     for (let i = 0; i < values.length; i += 1) {
@@ -17,4 +19,6 @@ export const theme = Object.freeze({
   },
 
   boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)',
+
+  cursor: 'pointer',
 });

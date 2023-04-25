@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: ${props => props.theme.spacing(4)};
+  padding-left: ${props => props.theme.spacing(4)};
   margin-right: auto;
   margin-left: auto;
-  width: 1268px;
+  width: ${props => props.theme.spacing(317)};
 `;
 
 export const Title = styled.h1`
