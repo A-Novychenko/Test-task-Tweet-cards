@@ -15,42 +15,48 @@ import {
   Logo,
   Wrap,
 } from './CardItem.styled';
+import { useUsers } from 'hooks';
 
 export const CardItem = ({
   user: { id, avatar = defaultAvatar, user, tweets, followers, isFollowing },
   handleClickBtn,
-}) => (
-  <CardWrap>
-    <Logo src={logo} alt={user} />
-    <Wrap>
-      <Background></Background>
-    </Wrap>
+}) => {
+  const { isLoading } = useUsers();
 
-    <AvatarBox>
-      <Delimiter>
-        <BorderAvatar>
-          <BackgroundAvatar
-            style={{ backgroundImage: `url(${avatar}` }}
-          ></BackgroundAvatar>
-        </BorderAvatar>
-      </Delimiter>
-    </AvatarBox>
+  return (
+    <CardWrap>
+      <Logo src={logo} alt={user} />
+      <Wrap>
+        <Background></Background>
+      </Wrap>
 
-    <Inner>
-      <Statistics> {tweets} tweets</Statistics>
-      <Statistics>{formatNumber(followers)} Followers</Statistics>
-      <Button
-        type="button"
-        onClick={() => {
-          handleClickBtn({ id, followers });
-        }}
-        isFollowing={isFollowing}
-      >
-        {isFollowing ? 'Following' : 'Follow'}
-      </Button>
-    </Inner>
-  </CardWrap>
-);
+      <AvatarBox>
+        <Delimiter>
+          <BorderAvatar>
+            <BackgroundAvatar
+              style={{ backgroundImage: `url(${avatar}` }}
+            ></BackgroundAvatar>
+          </BorderAvatar>
+        </Delimiter>
+      </AvatarBox>
+
+      <Inner>
+        <Statistics> {tweets} tweets</Statistics>
+        <Statistics>{formatNumber(followers)} Followers</Statistics>
+        <Button
+          disabled={isLoading}
+          type="button"
+          onClick={() => {
+            handleClickBtn({ id, followers });
+          }}
+          isFollowing={isFollowing}
+        >
+          {isFollowing ? 'Following' : 'Follow'}
+        </Button>
+      </Inner>
+    </CardWrap>
+  );
+};
 
 CardItem.propTypes = {
   user: PropTypes.shape({
