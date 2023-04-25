@@ -1,7 +1,5 @@
 # Test-task-Tweet-cards
 
-TWEETS
-
 ![Settings GitHub Actions permissions step 1](./assets/readmeImg.jpg) A
 beautifully designed tweeter with interactive buttons.
 [GET STARTED](https://a-novychenko.github.io/test-task-tweet-cards/).
