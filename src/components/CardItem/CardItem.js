@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { formatNumber } from 'utils/formatNumber';
 import logo from '../../img/logo.png';
 import defaultAvatar from '../../img/hansel.png';
@@ -50,3 +51,15 @@ export const CardItem = ({
     </Inner>
   </CardWrap>
 );
+
+CardItem.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    avatar: PropTypes.string,
+    user: PropTypes.string.isRequired,
+    tweets: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
+    isFollowing: PropTypes.bool.isRequired,
+  }),
+  handleClickBtn: PropTypes.func.isRequired,
+};

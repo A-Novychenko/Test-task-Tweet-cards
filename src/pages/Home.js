@@ -1,5 +1,5 @@
-import { HomeContent } from 'components/HomeContetnt';
 import { useLocation } from 'react-router-dom';
+import { HomeContent } from 'components/HomeContetnt';
 
 const Home = () => {
   const location = useLocation();

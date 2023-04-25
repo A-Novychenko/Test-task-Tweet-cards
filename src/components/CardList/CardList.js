@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { CardItem } from 'components/CardItem/CardItem';
 import { List } from './CardList.styled';
 
@@ -9,3 +10,11 @@ export const CardList = ({ currentUsers, handleClickBtn }) => (
       ))}
   </List>
 );
+
+CardList.propTypes = {
+  currentUsers: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+};

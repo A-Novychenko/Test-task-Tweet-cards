@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { SelectStyled } from './Dropdown.styled';
 
 const options = [
@@ -27,4 +28,9 @@ export const Dropdown = ({ filter, handleChangeValue }) => {
       })}
     />
   );
+};
+
+Dropdown.propTypes = {
+  filter: PropTypes.string,
+  handleChangeValue: PropTypes.func.isRequired,
 };

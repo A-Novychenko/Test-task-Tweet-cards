@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Title, Descr, StartLink } from './HomeContetnt.styled';
 
 export const HomeContent = ({ location }) => {
@@ -8,4 +9,8 @@ export const HomeContent = ({ location }) => {
       <StartLink to={location.state?.from ?? '/tweets'}>get started</StartLink>
     </>
   );
+};
+
+HomeContent.propTypes = {
+  location: PropTypes.object.isRequired,
 };

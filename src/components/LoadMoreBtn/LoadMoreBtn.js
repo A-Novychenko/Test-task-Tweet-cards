@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Button } from './LoadMoreBtn.styled';
 
 export const LoadMoreBtn = ({ nextPage }) => (
@@ -5,3 +6,7 @@ export const LoadMoreBtn = ({ nextPage }) => (
     Load More
   </Button>
 );
+
+LoadMoreBtn.propTypes = {
+  nextPage: PropTypes.func.isRequired,
+};

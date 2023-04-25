@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Circles } from 'react-loader-spinner';
+
 import {
   addFollowing,
   removeFollowing,
@@ -8,14 +11,13 @@ import {
   changeQuantityFollower,
   fetchUsers,
 } from 'redux/users/usersOperations';
+
 import { Dropdown } from 'components/Dropdown';
 import { CardList } from 'components/CardList';
 import { LoadMoreBtn } from 'components/LoadMoreBtn';
 import { BackBtn } from 'components/BackBtn';
 
-import { Circles } from 'react-loader-spinner';
 import { useUsers } from 'hooks';
-import { useLocation, useSearchParams } from 'react-router-dom';
 import { filterUsers } from 'utils';
 
 const Tweets = () => {

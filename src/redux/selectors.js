@@ -2,7 +2,6 @@ import { createSelector } from '@reduxjs/toolkit';
 
 export const selectUsers = state => state.users.items;
 export const selectFollowingsUsersList = state => state.isFollowing;
-// export const selectStatusFilter = state => state.statusFilter;
 export const selectError = state => state.users.error;
 export const selectIsLoading = state => state.users.isLoading;
 
@@ -18,13 +17,5 @@ export const selectVisibleUsers = createSelector(
     });
 
     return hendleUsers;
-    // switch (statusFilter) {
-    //   case 'follow':
-    //     return hendleUsers.filter(user => !user.isFollowing);
-    //   case 'followings':
-    //     return hendleUsers.filter(user => user.isFollowing);
-    //   default:
-    //     return hendleUsers;
-    // }
   }
 );
