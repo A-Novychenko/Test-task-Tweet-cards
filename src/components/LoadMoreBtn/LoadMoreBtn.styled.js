@@ -10,7 +10,7 @@ export const Button = styled.button`
   margin-right: auto;
   margin-top: ${props => props.theme.spacing(4)};
   margin-bottom: ${props => props.theme.spacing(8)};
-  width: ${props => props.theme.spacing(50)};
+  width: ${props => props.theme.spacing(49)};
 
   background-color: ${props => props.theme.colors.primary};
   box-shadow: ${props => props.theme.boxShadow};
@@ -25,7 +25,8 @@ export const Button = styled.button`
 
   cursor: ${props => props.theme.cursor};
 
-  &:hover {
+  &:hover,
+  :focus {
     color: ${props => props.theme.colors.textDark};
     background-color: ${props => props.theme.colors.accent};
   }

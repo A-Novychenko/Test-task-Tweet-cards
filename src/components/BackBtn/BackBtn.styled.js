@@ -9,7 +9,7 @@ export const Button = styled(Link)`
   gap: ${props => props.theme.spacing(1.5)};
   margin-top: ${props => props.theme.spacing(6.5)};
   margin-bottom: ${props => props.theme.spacing(6.5)};
-  width: ${props => props.theme.spacing(50)};
+  width: ${props => props.theme.spacing(49)};
 
   background-color: ${props => props.theme.colors.primary};
   box-shadow: ${props => props.boxShadow};
@@ -24,7 +24,8 @@ export const Button = styled(Link)`
 
   cursor: ${props => props.theme.cursor};
 
-  &:hover {
+  &:hover,
+  :focus {
     background-color: ${props => props.theme.colors.accent};
     color: ${props => props.theme.colors.textDark};
   }

@@ -7,7 +7,6 @@ import {
   BorderAvatar,
   Button,
   CardWrap,
-  Delimiter,
   Inner,
   Statistics,
   AvatarBox,
@@ -27,17 +26,13 @@ export const CardItem = ({
     <CardWrap>
       <Logo src={logo} alt={user} />
       <Wrap>
-        <Background></Background>
+        <Background />
       </Wrap>
 
       <AvatarBox>
-        <Delimiter>
-          <BorderAvatar>
-            <BackgroundAvatar
-              style={{ backgroundImage: `url(${avatar}` }}
-            ></BackgroundAvatar>
-          </BorderAvatar>
-        </Delimiter>
+        <BorderAvatar>
+          <BackgroundAvatar style={{ backgroundImage: `url(${avatar}` }} />
+        </BorderAvatar>
       </AvatarBox>
 
       <Inner>

@@ -45,16 +45,20 @@ export const AvatarBox = styled.div`
   position: absolute;
   width: 100%;
   top: ${props => props.theme.spacing(53.5)};
+
+  ::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: ${props => props.theme.spacing(2)};
+    background-color: ${props => props.theme.colors.secondary};
+
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+      inset 0px -1.71846px 3.43693px #ae7be3,
+      inset 0px 3.43693px 2.5777px #fbf8ff;
+  }
 `;
 
-export const Delimiter = styled.div`
-  width: 100%;
-  height: ${props => props.theme.spacing(2)};
-  background-color: ${props => props.theme.colors.secondary};
-
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
-`;
 export const BorderAvatar = styled.div`
   position: absolute;
   top: 50%;
@@ -116,6 +120,7 @@ export const Button = styled.button`
   padding: ${props => props.theme.spacing(3.5, 7)};
   gap: ${props => props.theme.spacing(1.5)};
   margin-top: ${props => props.theme.spacing(6.5)};
+  width: ${props => props.theme.spacing(49)};
 
   background-color: ${props =>
     props.isFollowing
@@ -133,7 +138,8 @@ export const Button = styled.button`
 
   cursor: ${props => props.theme.cursor};
 
-  &:hover {
+  &:hover,
+  :focus {
     background-color: ${props =>
       props.isFollowing
         ? props.theme.colors.secondary

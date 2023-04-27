@@ -23,7 +23,7 @@ export const StartLink = styled(Link)`
   margin-left: auto;
   margin-right: auto;
   margin-top: ${props => props.theme.spacing(6.5)};
-  width: ${props => props.theme.spacing(50)};
+  width: ${props => props.theme.spacing(49)};
   gap: ${props => props.theme.spacing(1.5)};
 
   background-color: ${props => props.theme.colors.primary};
@@ -39,7 +39,8 @@ export const StartLink = styled(Link)`
 
   cursor: ${props => props.theme.cursor};
 
-  &:hover {
+  &:hover,
+  :focus {
     background-color: ${props => props.theme.colors.accent};
     color: ${props => props.theme.colors.textDark};
   }
